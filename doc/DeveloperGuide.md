@@ -112,6 +112,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should work without any dependency on other softwares
+6. Should work by using `java` command in terminal without installation
+7. Should have tolerable response time
+8. Should recover from the case that the storage file is deleted while the programme is running.
 
 ## Appendix D : Glossary
 
