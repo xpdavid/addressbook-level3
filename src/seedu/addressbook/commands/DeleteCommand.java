@@ -19,6 +19,7 @@ public class DeleteCommand extends Command {
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
 
+    private boolean isMutatingData = false;
 
     public DeleteCommand(int targetVisibleIndex) {
         super(targetVisibleIndex);
@@ -30,6 +31,7 @@ public class DeleteCommand extends Command {
         try {
             final ReadOnlyPerson target = getTargetPerson();
             addressBook.removePerson(target);
+            isMutatingData = true;
             return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, target));
 
         } catch (IndexOutOfBoundsException ie) {
@@ -37,6 +39,11 @@ public class DeleteCommand extends Command {
         } catch (PersonNotFoundException pnfe) {
             return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK);
         }
+    }
+    
+    @Override
+    public boolean isMutating() {
+        return isMutatingData;
     }
 
 }
