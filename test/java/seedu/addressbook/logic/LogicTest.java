@@ -173,6 +173,8 @@ public class LogicTest {
 
         // setup starting state
         addressBook.addPerson(toBeAdded); // person already in internal address book
+        // Save file as the above statement doesn't involve logic class
+        saveFile.save(addressBook);
 
         // execute command and verify result
         assertCommandBehavior(
@@ -193,6 +195,8 @@ public class LogicTest {
 
         // prepare address book state
         helper.addToAddressBook(addressBook, false, true);
+        // Save file as the command is not mutating data
+        saveFile.save(addressBook);
 
         assertCommandBehavior("list",
                               Command.getMessageForPersonListShownSummary(expectedList),
@@ -240,6 +244,9 @@ public class LogicTest {
         List<Person> lastShownList = helper.generatePersonList(p1, p2);
         AddressBook expectedAB = helper.generateAddressBook(lastShownList);
         helper.addToAddressBook(addressBook, lastShownList);
+        
+        // Save file as the above statement doesn't involve logic class
+        saveFile.save(addressBook);
 
         logic.setLastShownList(lastShownList);
 
@@ -268,6 +275,9 @@ public class LogicTest {
 
         addressBook.addPerson(p2);
         logic.setLastShownList(lastShownList);
+        
+        // Save file as the above statements doesn't involve logic class
+        saveFile.save(addressBook);
 
         assertCommandBehavior("view 1",
                               Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK,
@@ -296,6 +306,8 @@ public class LogicTest {
         List<Person> lastShownList = helper.generatePersonList(p1, p2);
         AddressBook expectedAB = helper.generateAddressBook(lastShownList);
         helper.addToAddressBook(addressBook, lastShownList);
+        // Save file as the above statement doesn't involve logic class
+        saveFile.save(addressBook);
 
         logic.setLastShownList(lastShownList);
 
@@ -324,6 +336,9 @@ public class LogicTest {
 
         addressBook.addPerson(p1);
         logic.setLastShownList(lastShownList);
+        
+        // Save file as the above statement doesn't involve logic class
+        saveFile.save(addressBook);
 
         assertCommandBehavior("viewall 2",
                                 Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK,
@@ -383,6 +398,9 @@ public class LogicTest {
         helper.addToAddressBook(addressBook, threePersons);
         addressBook.removePerson(p2);
         logic.setLastShownList(threePersons);
+        
+        // Save file as the above statements doesn't involve logic class
+        saveFile.save(addressBook);
 
         assertCommandBehavior("delete 2",
                                 Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK,
@@ -409,6 +427,9 @@ public class LogicTest {
         AddressBook expectedAB = helper.generateAddressBook(fourPersons);
         List<Person> expectedList = helper.generatePersonList(pTarget1, pTarget2);
         helper.addToAddressBook(addressBook, fourPersons);
+        
+        // Save file as the above statements doesn't involve logic class
+        saveFile.save(addressBook);
 
         assertCommandBehavior("find KEY",
                                 Command.getMessageForPersonListShownSummary(expectedList),
@@ -429,6 +450,9 @@ public class LogicTest {
         AddressBook expectedAB = helper.generateAddressBook(fourPersons);
         List<Person> expectedList = helper.generatePersonList(pTarget1, pTarget2);
         helper.addToAddressBook(addressBook, fourPersons);
+        
+        // Save file as the above statements doesn't involve logic class
+        saveFile.save(addressBook);
 
         assertCommandBehavior("find KEY",
                                 Command.getMessageForPersonListShownSummary(expectedList),
@@ -449,6 +473,9 @@ public class LogicTest {
         AddressBook expectedAB = helper.generateAddressBook(fourPersons);
         List<Person> expectedList = helper.generatePersonList(pTarget1, pTarget2);
         helper.addToAddressBook(addressBook, fourPersons);
+        
+        // Save file as the above statements doesn't involve logic class
+        saveFile.save(addressBook);
 
         assertCommandBehavior("find KEY rAnDoM",
                                 Command.getMessageForPersonListShownSummary(expectedList),
