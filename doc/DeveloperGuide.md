@@ -79,11 +79,13 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
-#### Use case: Edit person
-1. User requests to list persons
-2. AddressBook shows a list of person
-3. User requests to edit a specific person with updated information
-4. AddressBook edits the person <br>
+#### Use case: Edit tag
+1. User requests to list tags
+2. AddressBook shows a list of tags
+3. User requests to edit a specific tag with updated name
+4. AddressBook ask user to confirm the operation
+5. User confirms the change
+6. AddressBook change the tag name <br>
 Use case ends.
 
 **Extensions**
@@ -96,9 +98,13 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
-4a. The provided updated information is invalid
+4a. The provided updated tag name is invalid
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+
+5a. User cancel the operation in step 4
+
+> Use case ends
 
 ## Appendix C : Non Functional Requirements
 
