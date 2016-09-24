@@ -87,8 +87,8 @@ public class MainWindow {
         display(result.feedbackToUser);
     }
 
-    public void displayWelcomeMessage(String version, String storageFilePath) {
-        String storageFileInfo = String.format(MESSAGE_USING_STORAGE_FILE, storageFilePath);
+    public void displayWelcomeMessage(String version, String storageSource) {
+        String storageFileInfo = String.format(MESSAGE_USING_STORAGE_FILE, storageSource);
         display(MESSAGE_WELCOME, version, MESSAGE_PROGRAM_LAUNCH_ARGS_USAGE, storageFileInfo);
     }
 
